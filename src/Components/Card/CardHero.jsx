@@ -1,10 +1,18 @@
 import {Card, CloseButton} from "react-bootstrap";
 import CardStats from "./CardStats";
 
-const CardHero = ({pos, hero, handleShowAdd, handleShowDetails}) => {
+const CardHero = ({
+  pos,
+  hero,
+  setCurrentHero,
+  handleShowAdd,
+  handleShowDetails,
+}) => {
   const {id, name, imgUrl, powerstats} = hero;
 
   const handleClick = () => {
+    setCurrentHero(hero);
+    //console.log(hero);
     window.localStorage.setItem("currentCard", pos);
     if (name) {
       handleShowDetails();

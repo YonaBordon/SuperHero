@@ -1,0 +1,82 @@
+{
+  "team": [
+    {
+      "id": 1,
+      "name": "A-Bomb",
+      "imgUrl": "https://www.superherodb.com/pictures2/portraits/10/100/10060.jpg",
+      "powerstats": {
+        "intelligence": "38",
+        "strength": "100",
+        "speed": "17",
+        "durability": "80",
+        "power": "24",
+        "combat": "64"
+      }
+    },
+    {
+      "id": 2,
+      "name": "Abe Sapien",
+      "imgUrl": "https://www.superherodb.com/pictures2/portraits/10/100/956.jpg",
+      "powerstats": {
+        "intelligence": "88",
+        "strength": "28",
+        "speed": "35",
+        "durability": "65",
+        "power": "100",
+        "combat": "85"
+      }
+    },
+    {
+      "id": 3,
+      "name": "Abin Sur",
+      "imgUrl": "https://www.superherodb.com/pictures2/portraits/10/100/1460.jpg",
+      "powerstats": {
+        "intelligence": "50",
+        "strength": "90",
+        "speed": "53",
+        "durability": "64",
+        "power": "99",
+        "combat": "65"
+      }
+    },
+    {
+      "id": 3,
+      "name": "Abin Sur",
+      "imgUrl": "https://www.superherodb.com/pictures2/portraits/10/100/1460.jpg",
+      "powerstats": {
+        "intelligence": "50",
+        "strength": "90",
+        "speed": "53",
+        "durability": "64",
+        "power": "99",
+        "combat": "65"
+      }
+    },
+    {
+      "id": 3,
+      "name": "Abin Sur",
+      "imgUrl": "https://www.superherodb.com/pictures2/portraits/10/100/1460.jpg",
+      "powerstats": {
+        "intelligence": "50",
+        "strength": "90",
+        "speed": "53",
+        "durability": "64",
+        "power": "99",
+        "combat": "65"
+      }
+    },
+    {
+      "id": "",
+      "name": "",
+      "imgUrl": "",
+      "powerstats": {
+        "intelligence": "null",
+        "strength": "null",
+        "speed": "null",
+        "durability": "null",
+        "power": "null",
+        "combat": "null"
+      }
+    }
+  ]
+}

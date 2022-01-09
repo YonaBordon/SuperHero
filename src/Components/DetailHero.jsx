@@ -3,14 +3,14 @@ import {Alert, Figure, Modal} from "react-bootstrap";
 import {searchById} from "../helpers/request";
 import Loader from "./Loader";
 
-const DetailHero = ({cards}) => {
+const DetailHero = ({currentHero}) => {
   const pos = window.localStorage.getItem("currentCard");
   const [hero, setHero] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState("");
 
   const currentCard = async () => {
-    await searchById(cards[pos].id).then((res) => {
+    await searchById(currentHero.id).then((res) => {
       const {data} = res;
       if (data.error) {
         setError(data.error);
@@ -25,7 +25,7 @@ const DetailHero = ({cards}) => {
 
   useEffect(() => {
     currentCard();
-  }, [cards[pos].id]);
+  }, [hero.id]);
 
   const {name, biography, appearance, work, image} = hero;
   return (
