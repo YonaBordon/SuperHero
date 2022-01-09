@@ -4,7 +4,7 @@ import {Card, CardGroup, CloseButton, Modal} from "react-bootstrap";
 import CardHero from "./Card/CardHero";
 import AddHero from "./AddHero";
 import DetailHero from "./DetailHero";
-import {data} from "autoprefixer";
+import Login from "./Login";
 
 let teamV = [
   {
@@ -87,9 +87,12 @@ let teamV = [
   },
 ];
 
+const tkn = window.localStorage.getItem("token");
+
 const Team = () => {
   const [cards, setCards] = useState(teamV);
   const [currentHero, setCurrentHero] = useState({});
+  const [token, setToken] = useState(tkn);
 
   const [showDetails, setShowDetails] = useState(false);
   const handleShowDetails = () => setShowDetails(true);
@@ -98,6 +101,18 @@ const Team = () => {
   const [showAdd, setShowAdd] = useState(false);
   const handleShowAdd = () => setShowAdd(true);
   const handleCloseAdd = () => setShowAdd(false);
+
+  const [showLogin, setShowLogin] = useState(true);
+  const handleShowLogin = () => setShowLogin(true);
+  const handleCloseLogin = () => setShowLogin(false);
+
+  useEffect(() => {
+    if (token) {
+      handleCloseLogin();
+    } else {
+      handleShowLogin();
+    }
+  }, [token]);
 
   const updateTeam = (newHero) => {
     let newTeam = teamV;
@@ -148,17 +163,30 @@ const Team = () => {
         </div>
       </div>
 
-      <Modal show={showAdd} onHide={handleCloseAdd} size="lg">
-        <Modal.Header className=" flex-column-reverse" closeButton>
-          <AddHero updateTeam={updateTeam} handleCloseAdd={handleCloseAdd} />
-        </Modal.Header>
-      </Modal>
+      {token ? (
+        <>
+          <Modal show={showAdd} onHide={handleCloseAdd} size="lg">
+            <Modal.Header className=" flex-column-reverse" closeButton>
+              <AddHero
+                updateTeam={updateTeam}
+                handleCloseAdd={handleCloseAdd}
+              />
+            </Modal.Header>
+          </Modal>
 
-      <Modal show={showDetails} onHide={handleCloseDetails} size="lg">
-        <Modal.Header className=" flex-column-reverse" closeButton>
-          <DetailHero currentHero={currentHero} />
-        </Modal.Header>
-      </Modal>
+          <Modal show={showDetails} onHide={handleCloseDetails} size="lg">
+            <Modal.Header className=" flex-column-reverse" closeButton>
+              <DetailHero currentHero={currentHero} />
+            </Modal.Header>
+          </Modal>
+        </>
+      ) : (
+        <Login
+          showLogin={showLogin}
+          handleCloseLogin={handleCloseLogin}
+          setToken={setToken}
+        />
+      )}
     </>
   );
 };
