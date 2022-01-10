@@ -23,7 +23,7 @@ const Login = ({showLogin, handleCloseLogin, setToken}) => {
                 })
                 .then((res) => {
                   const TOKEN = res["data"].token;
-                  console.log(TOKEN);
+                  //console.log(TOKEN);
                   setToken(TOKEN);
                   window.localStorage.setItem("token", TOKEN);
                   handleCloseLogin();

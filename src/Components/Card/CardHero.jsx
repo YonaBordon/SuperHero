@@ -4,6 +4,7 @@ import CardStats from "./CardStats";
 const CardHero = ({
   pos,
   hero,
+  updateTeam,
   setCurrentHero,
   handleShowAdd,
   handleShowDetails,
@@ -20,11 +21,27 @@ const CardHero = ({
       handleShowAdd();
     }
   };
+  const handleDelete = () => {
+    const empty = {
+      id: "",
+      name: "",
+      image: "",
+      powerstats: {
+        intelligence: "null",
+        strength: "null",
+        speed: "null",
+        durability: "null",
+        power: "null",
+        combat: "null",
+      },
+    };
+    updateTeam(empty);
+  };
 
   return (
     <div>
       <Card className="mx-3 my-5" border="dark">
-        <CloseButton />
+        <CloseButton onClick={handleDelete} />
         <Card.Body onClick={handleClick}>
           <Card.Title className="hero-name text-center">
             {name ? name : "Empty"}

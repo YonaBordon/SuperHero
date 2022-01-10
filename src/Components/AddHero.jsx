@@ -59,10 +59,15 @@ const AddHero = ({updateTeam, handleCloseAdd}) => {
         {isLoading ? (
           <Loader />
         ) : (
-          <CardGroup className=" row-cols-3">
+          <CardGroup className=" row-cols-3 ">
             {heroesList.map((hero) => (
               <div>
-                <Card key={hero.id} className=" m-xl-2" border="dark">
+                <Card
+                  key={hero.id}
+                  className="mb-2"
+                  border="dark"
+                  style={{width: "15rem"}}
+                >
                   <Card.Body onClick={() => handleClick(hero)}>
                     <Card.Title className="text-center">{hero.name}</Card.Title>
                     <Card.Img

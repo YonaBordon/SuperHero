@@ -1,6 +1,6 @@
 import "./Team.css";
 import {useEffect, useState} from "react";
-import {Card, CardGroup, CloseButton, Modal} from "react-bootstrap";
+import {CardGroup, Modal} from "react-bootstrap";
 import CardHero from "./Card/CardHero";
 import AddHero from "./AddHero";
 import DetailHero from "./DetailHero";
@@ -106,14 +106,6 @@ const Team = () => {
   const handleShowLogin = () => setShowLogin(true);
   const handleCloseLogin = () => setShowLogin(false);
 
-  useEffect(() => {
-    if (token) {
-      handleCloseLogin();
-    } else {
-      handleShowLogin();
-    }
-  }, [token]);
-
   const updateTeam = (newHero) => {
     let newTeam = teamV;
     const pos = window.localStorage.getItem("currentCard");
@@ -147,6 +139,7 @@ const Team = () => {
               key={index}
               pos={index}
               hero={hero}
+              updateTeam={updateTeam}
               setCurrentHero={setCurrentHero}
               handleShowAdd={handleShowAdd}
               handleShowDetails={handleShowDetails}
