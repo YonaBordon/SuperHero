@@ -92,6 +92,7 @@ const tkn = window.localStorage.getItem("token");
 const Team = () => {
   const [cards, setCards] = useState(teamV);
   const [currentHero, setCurrentHero] = useState({});
+  const [allStats, setAllStats] = useState([]);
 
   const [token, setToken] = useState(tkn);
 
@@ -127,7 +128,8 @@ const Team = () => {
     };
     newTeam[pos] = heroData;
     setCards(newTeam);
-    //console.log(cards);
+    // VER ELIMINAR
+    console.log("eliminado");
   };
 
   return (
@@ -157,24 +159,24 @@ const Team = () => {
         </div>
       </div>
 
-      {token ? (
-        <>
-          <Modal show={showAdd} onHide={handleCloseAdd} size="lg">
-            <Modal.Header className=" flex-column-reverse" closeButton>
-              <AddHero
-                updateTeam={updateTeam}
-                handleCloseAdd={handleCloseAdd}
-              />
-            </Modal.Header>
-          </Modal>
-
-          <Modal show={showDetails} onHide={handleCloseDetails} size="lg">
-            <Modal.Header className=" flex-column-reverse" closeButton>
-              <DetailHero currentHero={currentHero} />
-            </Modal.Header>
-          </Modal>
-        </>
-      ) : (
+      <>
+        <AddHero
+          showAdd={showAdd}
+          updateTeam={updateTeam}
+          handleCloseAdd={handleCloseAdd}
+        />
+        {/* ver esto */}
+        <Modal show={showDetails} onHide={handleCloseDetails} size="lg">
+          <Modal.Header className=" flex-column-reverse" closeButton>
+            <DetailHero
+              showDetails={showDetails}
+              handleCloseDetails={handleCloseDetails}
+              currentHero={currentHero}
+            />
+          </Modal.Header>
+        </Modal>
+      </>
+      {!token && (
         <Login
           showLogin={showLogin}
           handleCloseLogin={handleCloseLogin}

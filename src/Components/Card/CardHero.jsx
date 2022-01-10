@@ -22,6 +22,7 @@ const CardHero = ({
     }
   };
   const handleDelete = () => {
+    window.localStorage.setItem("currentCard", pos);
     const empty = {
       id: "",
       name: "",
