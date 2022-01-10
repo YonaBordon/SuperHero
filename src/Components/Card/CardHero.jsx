@@ -40,17 +40,17 @@ const CardHero = ({
 
   return (
     <div>
-      <Card className="mx-3 my-5" border="dark">
+      <Card className="mx-3 my-5 w-auto" border="dark">
         <CloseButton onClick={handleDelete} />
         <Card.Body onClick={handleClick}>
           <Card.Title className="hero-name text-center">
             {name ? name : "Empty"}
           </Card.Title>
           <Card.Img
-            className="hero-img rounded-3"
-            width={150}
-            height={250}
+            className="hero-img rounded-3 "
             variant="top"
+            width={50}
+            height={200}
             src={
               imgUrl
                 ? imgUrl

@@ -21,7 +21,7 @@ const DetailHero = ({currentHero}) => {
     });
   };
   //console.log(cards[pos].id);
-  console.log(hero);
+  //console.log(hero);
 
   useEffect(() => {
     currentCard();

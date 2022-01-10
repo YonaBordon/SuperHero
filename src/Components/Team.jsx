@@ -92,6 +92,7 @@ const tkn = window.localStorage.getItem("token");
 const Team = () => {
   const [cards, setCards] = useState(teamV);
   const [currentHero, setCurrentHero] = useState({});
+
   const [token, setToken] = useState(tkn);
 
   const [showDetails, setShowDetails] = useState(false);
@@ -110,7 +111,7 @@ const Team = () => {
     let newTeam = teamV;
     const pos = window.localStorage.getItem("currentCard");
     const {id, name, image, powerstats} = newHero;
-    console.log(newHero);
+    //console.log(newHero);
     const heroData = {
       id: id,
       name: name,
@@ -126,14 +127,14 @@ const Team = () => {
     };
     newTeam[pos] = heroData;
     setCards(newTeam);
-    console.log(cards);
+    //console.log(cards);
   };
 
   return (
     <>
       <div>
         <h3>Tipo Team:</h3>
-        <CardGroup className=" row-cols-xl-6 row-cols-md-3 row-cols-sm-2">
+        <CardGroup className=" d-flex row-cols-lg-6 row-cols-md-3 row-cols-sm-2">
           {cards.map((hero, index) => (
             <CardHero
               key={index}

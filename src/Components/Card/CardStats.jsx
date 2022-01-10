@@ -2,8 +2,8 @@ import "./CardStats.css";
 const CardStats = ({powerstats}) => {
   const {combat, durability, intelligence, speed, strength, power} = powerstats;
   return (
-    <div className="powerstats">
-      <div className="stats-info">
+    <div className="powerstats d-flex ">
+      <div className="stats-info ">
         <i className="fas fa-fist-raised" />
         <p>{combat === "null" ? "0" : combat}</p>
       </div>
